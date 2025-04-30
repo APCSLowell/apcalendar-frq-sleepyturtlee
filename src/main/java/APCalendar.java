@@ -59,10 +59,17 @@ public class APCalendar
   public static int dayOfWeek(int month, int day, int year)
   {
     /* to be implemented in part (b) */
-    // calendar starts on day 1
-    int dayNum = 1;
-    // calendar starts on __ weekday
-    int dayOfWeek = firstDayOfYear(year);
+    // easier solution:
+    
+    int startDay = firstDayOfYear(year);
+    int nthDay = dayOfYear(month, day, year);
+    int returnDay = (startDay + nthDay - 1) % 7;
+    return returnDay;
+
+    
+    /* --------------------My solution: --------------------
+    int dayNum = 1;     // calendar starts on day 1
+    int dayOfWeek = firstDayOfYear(year);     // calendar starts on __ weekday
     // put the right amount of parentheses
     // go through each day of the year
     // note: no off-by-1 error because it WILL hit the last day.
@@ -79,5 +86,6 @@ public class APCalendar
     }
     // return the day of the week
     return dayOfWeek;
+    ------------------------------------------------------------*/
   }
 }
