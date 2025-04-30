@@ -14,7 +14,8 @@ public class APCalendar
   { 
     /* to be implemented in part (a) */
     int count = 0;
-    for(int i = year1; i < year2; i++) {
+    // increment using <=, not just < !
+    for(int i = year1; i <= year2; i++) {
       if(isLeapYear(i) == true) {
         count++;
       }
