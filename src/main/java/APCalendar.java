@@ -59,17 +59,25 @@ public class APCalendar
   public static int dayOfWeek(int month, int day, int year)
   {
     /* to be implemented in part (b) */
+    // calendar starts on day 1
     int dayNum = 1;
+    // calendar starts on __ weekday
     int dayOfWeek = firstDayOfYear(year);
     // put the right amount of parentheses
+    // go through each day of the year
+    // note: no off-by-1 error because it WILL hit the last day.
+    // the increment is IN the loop !
     while(dayNum < dayOfYear(month, day, year)) {
+      // a day goes by
       dayNum++;
+      // increment the day of the week accordingly. 
       if(dayOfWeek+1 >= 7) {
         dayOfWeek = 0;
       } else {
         dayOfWeek++;
       }
     }
+    // return the day of the week
     return dayOfWeek;
   }
 }
